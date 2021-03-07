@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./published-by.component.scss'],
 })
 export class PublishedByComponent implements OnInit {
-  @Input() author: string = '';
-  @Input() publishDate: string = '';
+  @Input() author = '';
+  @Input() publishDate = '';
 
   constructor() {}
 
