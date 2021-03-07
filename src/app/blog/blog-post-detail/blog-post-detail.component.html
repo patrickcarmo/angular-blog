@@ -1,0 +1,34 @@
+<main class="container">
+  <article class="jumbotron" *ngIf="post$ | async as post">
+    <h2 class="display-4">{{ post.title }}</h2>
+    <app-published-by
+      [author]="post.author"
+      [publishDate]="post.publish_date"
+    ></app-published-by>
+    <hr class="my-4" />
+    <aside [innerHTML]="post.content"></aside>
+  </article>
+
+  <aside class="blog-comment">
+    <h2 class="title">Comments</h2>
+
+    <ng-container
+      *ngIf="
+        comments$ | async | sortByProperty: 'id':'ASC' | commentTree as comments
+      "
+    >
+      <app-comment-list
+        *ngIf="comments.length > 0; else noCommentsYet"
+        [comments]="comments"
+        (commented)="loadComments(postId)"
+      ></app-comment-list>
+
+      <ng-template #noCommentsYet><h3>No comments yet!</h3></ng-template>
+    </ng-container>
+
+    <app-comment-new
+      [postId]="postId"
+      (commented)="loadComments($event)"
+    ></app-comment-new>
+  </aside>
+</main>
