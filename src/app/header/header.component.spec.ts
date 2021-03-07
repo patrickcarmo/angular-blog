@@ -8,9 +8,8 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [HeaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,16 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should render the header as title 'Angular Blog'`, () => {
+    const fixture = TestBed.createComponent(HeaderComponent);
+    const result = 'Angular Blog';
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    const expected = compiled.querySelector('h1').textContent;
+
+    expect(expected).toContain(result);
   });
 });

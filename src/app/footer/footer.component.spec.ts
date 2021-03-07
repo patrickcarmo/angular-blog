@@ -8,9 +8,8 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
-    })
-    .compileComponents();
+      declarations: [FooterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,16 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should render the footer as title 'Angular Blog'`, () => {
+    const fixture = TestBed.createComponent(FooterComponent);
+    const result = 'Angular application | Privacy policy';
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    const expected = compiled.querySelector('span').textContent;
+
+    expect(expected).toContain(result);
   });
 });
