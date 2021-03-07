@@ -1,11 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { BlogPostDetailComponent } from './blog-post-detail.component';
 import { PostService } from 'src/app/services/post.service';
 import { CommentService } from 'src/app/services/comment.service';
 import { CommentTreePipe } from 'src/app/pipes/comment-tree.pipe';
 import { SortByPropertyPipe } from 'src/app/pipes/sort-property.pipe';
+import { CommentNewComponent } from 'src/app/comment/comment-new/comment-new.component';
+import { PublishedByComponent } from 'src/app/published-by/published-by.component';
+import { CommentListComponent } from 'src/app/comment/comment-list/comment-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const postId = 1;
 
@@ -58,6 +62,9 @@ describe('BlogPostDetailComponent', () => {
         BlogPostDetailComponent,
         CommentTreePipe,
         SortByPropertyPipe,
+        CommentNewComponent,
+        PublishedByComponent,
+        CommentListComponent,
       ],
       providers: [
         {
@@ -73,6 +80,7 @@ describe('BlogPostDetailComponent', () => {
           useValue: postsServiceSpy,
         },
       ],
+      imports: [ReactiveFormsModule],
     }).compileComponents();
   });
 

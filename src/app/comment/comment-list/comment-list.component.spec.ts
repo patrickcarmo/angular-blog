@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PublishedByComponent } from 'src/app/published-by/published-by.component';
 
 import { CommentListComponent } from './comment-list.component';
 
@@ -10,7 +11,6 @@ const mockComment = [
     postId: 10,
     parent_id: 1,
     date: '2021-03-07',
-    children: [],
   },
 ];
 
@@ -20,7 +20,7 @@ describe('CommentListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CommentListComponent],
+      declarations: [CommentListComponent, PublishedByComponent],
     }).compileComponents();
   });
 

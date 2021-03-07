@@ -3,6 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BlogOverviewComponent } from './blog-overview.component';
 import { of } from 'rxjs';
 import { SortByPropertyPipe } from 'src/app/pipes/sort-property.pipe';
+import { PublishedByComponent } from 'src/app/published-by/published-by.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BlogOverviewComponent', () => {
   let component: BlogOverviewComponent;
@@ -10,8 +12,12 @@ describe('BlogOverviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BlogOverviewComponent, SortByPropertyPipe],
-      imports: [HttpClientTestingModule],
+      declarations: [
+        BlogOverviewComponent,
+        SortByPropertyPipe,
+        PublishedByComponent,
+      ],
+      imports: [HttpClientTestingModule, RouterTestingModule],
     }).compileComponents();
   });
 

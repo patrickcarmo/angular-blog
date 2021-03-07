@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommentNewComponent } from './comment-new.component';
 import { CommentService } from 'src/app/services/comment.service';
 import { of } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const mockComment = {
   user: 'Mock user',
@@ -21,7 +22,7 @@ describe('CommentNewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CommentNewComponent],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule],
       providers: [
         {
           provide: CommentService,
