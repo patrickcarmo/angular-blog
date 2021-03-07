@@ -1,0 +1,53 @@
+<section class="card mb-3">
+  <section class="card-body">
+    <form [formGroup]="form" (ngSubmit)="saveComment(form)">
+      <fieldset>
+        <legend>{{ buttonName }}</legend>
+
+        <section class="form-group">
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            [ngClass]="{
+              'is-invalid':
+                !form.get('user')?.valid && form.get('user')?.touched,
+              'is-valid': form.get('user')?.valid
+            }"
+            placeholder="Please type your name"
+            autocomplete="off"
+            formControlName="user"
+          />
+        </section>
+        <section class="form-group">
+          <textarea
+            class="form-control form-control-sm"
+            placeholder="Please type your comment"
+            autocomplete="off"
+            formControlName="content"
+            [ngClass]="{
+              'is-invalid':
+                !form.get('content')?.valid && form.get('content')?.touched,
+              'is-valid': form.get('content')?.valid
+            }"
+          ></textarea>
+        </section>
+        <button
+          type="submit"
+          class="btn btn-primary btn-sm"
+          [disabled]="!form.valid"
+        >
+          {{ buttonName }}
+        </button>
+        <ng-container *ngIf="buttonName === 'Reply'"
+          ><button
+            type="button"
+            class="btn btn-secondary btn-sm"
+            (click)="cancelComment()"
+          >
+            Cancel
+          </button></ng-container
+        >
+      </fieldset>
+    </form>
+  </section>
+</section>
