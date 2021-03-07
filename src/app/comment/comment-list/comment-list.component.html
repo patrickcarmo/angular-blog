@@ -28,7 +28,7 @@
       ></app-comment-new>
 
       <app-comment-list
-        [comments]="comment.children"
+        [comments]="comment?.children"
         (commented)="commented.emit($event)"
       ></app-comment-list>
     </li>

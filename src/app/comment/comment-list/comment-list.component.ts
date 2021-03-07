@@ -7,7 +7,7 @@ import { Comment } from 'src/app/models/comments.model';
   styleUrls: ['./comment-list.component.scss'],
 })
 export class CommentListComponent implements OnInit {
-  @Input() comments: Comment[] = [];
+  @Input() comments: Comment[] | undefined = [];
 
   @Output() commented = new EventEmitter<number>();
 
@@ -20,7 +20,6 @@ export class CommentListComponent implements OnInit {
   ngOnInit(): void {}
 
   toggleComment(close: boolean): void {
-    console.log('aqui');
     this.showButtonReply = close;
   }
 }

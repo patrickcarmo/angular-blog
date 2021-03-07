@@ -60,7 +60,6 @@ describe('CommentService', () => {
         user: 'Mock user',
         date: '2021-03-07',
         content: 'Mock content',
-        children: [],
       };
 
       const service: CommentService = TestBed.inject(CommentService);

@@ -34,6 +34,8 @@ export class CommentNewComponent implements OnInit {
           controls[input].markAsTouched();
         }
       }
+
+      return;
     }
 
     const date = this.getCurrentDate();
