@@ -47,8 +47,8 @@ describe('CommentNewComponent', () => {
 
   describe('the form', () => {
     it('should have a valid status when the fields are filled', () => {
-      const user = component.form.controls['user'];
-      const content = component.form.controls['content'];
+      const user = component.form.controls.user;
+      const content = component.form.controls.content;
 
       user.setValue('Mock Name');
       content.setValue('Mock content');
@@ -61,8 +61,8 @@ describe('CommentNewComponent', () => {
     it('should have mark the fields as touched when the form is invalid', () => {
       component.saveComment(component.form);
 
-      const user = component.form.controls['user'];
-      const content = component.form.controls['content'];
+      const user = component.form.controls.user;
+      const content = component.form.controls.content;
 
       expect(user.touched).toBeTruthy();
       expect(content.touched).toBeTruthy();
@@ -71,8 +71,8 @@ describe('CommentNewComponent', () => {
     it(
       'should have called save and emit comment when the form is valid',
       waitForAsync(() => {
-        const user = component.form.controls['user'];
-        const content = component.form.controls['content'];
+        const user = component.form.controls.user;
+        const content = component.form.controls.content;
         const commentedEmitSpy = spyOn(component.commented, 'emit');
 
         user.setValue('Mock Name');

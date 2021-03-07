@@ -20,7 +20,7 @@ const mockData: Comment[] = [
   },
   {
     user: 'Maria',
-    content: "it's a good new.",
+    content: `it's a good new.`,
     postId: 6,
     parent_id: null,
     date: '2021-03-07',
@@ -64,7 +64,7 @@ describe('CommentTreePipe', () => {
       },
       {
         user: 'Maria',
-        content: "it's a good new.",
+        content: `it's a good new.`,
         postId: 6,
         parent_id: null,
         date: '2021-03-07',

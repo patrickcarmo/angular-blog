@@ -36,7 +36,7 @@ const mockPost = [
   },
 ];
 
-let routeMock = {
+const routeMock = {
   snapshot: {
     paramMap: convertToParamMap({
       id: postId,

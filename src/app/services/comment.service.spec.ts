@@ -30,14 +30,12 @@ describe('CommentService', () => {
   });
 
   it('should be created', () => {
-    const service: CommentService = TestBed.inject(CommentService);
     expect(service).toBeTruthy();
   });
 
   describe('#getById', () => {
     it('should call http service with the correct path', (done) => {
       const id = 10;
-      const service: CommentService = TestBed.inject(CommentService);
 
       service.getById(id).subscribe(done);
 
@@ -61,8 +59,6 @@ describe('CommentService', () => {
         date: '2021-03-07',
         content: 'Mock content',
       };
-
-      const service: CommentService = TestBed.inject(CommentService);
 
       service.save(comment).subscribe(done);
 

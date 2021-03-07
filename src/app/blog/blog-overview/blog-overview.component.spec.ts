@@ -32,7 +32,6 @@ describe('BlogOverviewComponent', () => {
   });
 
   it('should render the footer with Angular messa', () => {
-    const fixture = TestBed.createComponent(BlogOverviewComponent);
     const result = 'Lets get informed!';
 
     fixture.detectChanges();
@@ -43,7 +42,6 @@ describe('BlogOverviewComponent', () => {
   });
 
   it('should render the .banner h2 message', () => {
-    const fixture = TestBed.createComponent(BlogOverviewComponent);
     const result = 'Lets get informed!';
 
     fixture.detectChanges();
@@ -54,7 +52,6 @@ describe('BlogOverviewComponent', () => {
   });
 
   it('should render the .banner h3 message', () => {
-    const fixture = TestBed.createComponent(BlogOverviewComponent);
     const result = 'Read the latest news from our blog';
 
     fixture.detectChanges();

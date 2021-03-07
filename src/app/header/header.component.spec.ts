@@ -23,7 +23,6 @@ describe('HeaderComponent', () => {
   });
 
   it(`should render the header as title 'Angular Blog'`, () => {
-    const fixture = TestBed.createComponent(HeaderComponent);
     const result = 'Angular Blog';
 
     fixture.detectChanges();

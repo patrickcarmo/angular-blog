@@ -23,7 +23,6 @@ describe('FooterComponent', () => {
   });
 
   it(`should render the footer as title 'Angular Blog'`, () => {
-    const fixture = TestBed.createComponent(FooterComponent);
     const result = 'Angular application | Privacy policy';
 
     fixture.detectChanges();

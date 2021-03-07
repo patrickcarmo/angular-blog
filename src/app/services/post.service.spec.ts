@@ -29,14 +29,11 @@ describe('PostService', () => {
   });
 
   it('should be created', () => {
-    const service: PostService = TestBed.inject(PostService);
     expect(service).toBeTruthy();
   });
 
   describe('#getAll', () => {
     it('should call http service with the correct path', (done) => {
-      const service: PostService = TestBed.inject(PostService);
-
       service.getAll().subscribe(done);
 
       const req = httpMock.expectOne(`${environment.apiEndpoint}/posts`);
@@ -50,7 +47,6 @@ describe('PostService', () => {
   describe('#getById', () => {
     it('should call http service with the correct path', (done) => {
       const id = 10;
-      const service: PostService = TestBed.inject(PostService);
 
       service.getById(id).subscribe(done);
 
