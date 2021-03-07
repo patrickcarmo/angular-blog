@@ -6,29 +6,26 @@
   </section>
 
   <section class="articles">
-    <article
-      class="card"
-      *ngFor="
-        let post of posts$ | async | sortByProperty: 'publish_date':'DESC'
-      "
-    >
-      <header class="card-header bg-transparent">
-        <h2 class="card-title">{{ post.title }}</h2>
-      </header>
-      <aside class="card-body">
-        <p class="card-text">
-          {{ post.description }}
-        </p>
-        <p class="card-text">
-          <small class="text-muted"
-            >by <strong>{{ post.author }}</strong> -
-            <time dateTime="{{ post.publish_date }}">{{
-              post.publish_date | date: "MMM dd, yyyy"
-            }}</time></small
-          >
-        </p>
-        <a [routerLink]="[post.id]" class="btn btn-primary">Read</a>
-      </aside>
-    </article>
+    <ng-container *ngIf="posts$ | async as posts; else noPostsYet">
+      <article
+        class="card"
+        *ngFor="let post of posts | sortByProperty: 'publish_date':'DESC'"
+      >
+        <header class="card-header bg-transparent">
+          <h2 class="card-title">{{ post.title }}</h2>
+        </header>
+        <aside class="card-body">
+          <p class="card-text">
+            {{ post.description }}
+          </p>
+          <app-published-by
+            [author]="post.author"
+            [publishDate]="post.publish_date"
+          ></app-published-by>
+          <a [routerLink]="[post.id]" class="btn btn-primary">Read</a>
+        </aside>
+      </article>
+    </ng-container>
+    <ng-template #noPostsYet><h3>No posts yet!</h3></ng-template>
   </section>
 </main>
